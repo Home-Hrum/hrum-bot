@@ -2,15 +2,15 @@ import React, {useState} from 'react';
 import btn from "../css/AddButton.module.css";
 
 const AddButton = ({id, callback}) => {
-    const [button, setButton] = useState(0);
+    const [button, setButton] = useState(false);
 
     const buttonPressed = () => {
         callback(id, true, buttonUnpressed)
-        setButton(1);
+        setButton(true);
     };
 
     const buttonUnpressed = () => {
-        setButton(0);
+        setButton(false);
     }
 
     const addProduct = () => {
@@ -27,8 +27,8 @@ const AddButton = ({id, callback}) => {
                 {!button
                     ? <button type="submit" onClick={buttonPressed} className={btn.btn}>Add</button>
                     : <div>
-                        <button onClick={removeProduct}>-</button>
-                        <button onClick={addProduct}>+</button>
+                        <button type="submit" onClick={removeProduct} className={`${btn.btn} ${btn.btn__minus}`}>-</button>
+                        <button type="submit" onClick={addProduct} className={`${btn.btn} ${btn.btn__plus}`}>+</button>
                       </div>
                 }
             </div>
