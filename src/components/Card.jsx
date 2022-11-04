@@ -2,7 +2,7 @@ import React from 'react';
 import card from "../css/Card.module.css";
 import AddButton from "./AddButton.jsx";
 
-const Card = ({img, name, price}) => {
+const Card = ({id, img, name, price, callback}) => {
     return (
         <div className={card.item}>
             <div style={
@@ -14,7 +14,7 @@ const Card = ({img, name, price}) => {
                 }
             } className={card.item__img}></div>
             <p className={card.item__text}>{name} ∙ <b>{price}€</b></p>
-            <AddButton />
+            <AddButton id={id} callback={callback} />
         </div>
     );
 };

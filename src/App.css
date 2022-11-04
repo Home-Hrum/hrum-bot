@@ -5,7 +5,7 @@
     line-height: 16px;
     font-weight: 400;
     background-color: var(--block-bg-color);
-    color: var(--text-color);
+    color: var(--tg-theme-text-color);
     color-scheme: var(--tg-color-scheme);
     margin: 0;
     padding: 0;
@@ -39,10 +39,11 @@
 .inner {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    padding-right: 20px;
+    padding-left: 20px;
 }
 
 .img {
-    grid-template-rows: 250px 9223372036854775807px 200px;
     width: 130px;
 }
 
