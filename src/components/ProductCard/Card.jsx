@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import card from "./Card.css";
-import AddButton from "./AddButton.jsx";
+import AddButton from "../Button/AddButton.jsx";
 
 const Card = ({ id, img, name, price, bin, callback }) => {
   const [indicator, setIndicator] = useState(0);
 
+  // Update count of product in the bin
   const updateIndicator = () => {
     setIndicator(bin[id]);
-    console.log("dsdsd", bin);
   };
 
   return (
@@ -22,16 +22,14 @@ const Card = ({ id, img, name, price, bin, callback }) => {
 
       <div
         style={{
-          backgroundImage: `url(${require("./a.png")})`,
-          backgroundPosition: "center",
-          backgroundSize: "cover",
-          backgroundRepeat: "no-repeat",
+          backgroundImage: `url(${require("./placeholder.png")})`,
         }}
         className={card.item__img}
       ></div>
       <p className={card.item__text}>
         {name} ∙ <b>{price}€</b>
       </p>
+
       <div onClick={updateIndicator}>
         <AddButton id={id} callback={callback} />
       </div>

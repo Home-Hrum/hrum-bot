@@ -1,0 +1,14 @@
+rsing error: Adjacent JSX elements must be wrapped in an enclosing tag. Did y
+   24     items: [                                                             │ou want a JSX fragment <>...</>? (10:8)
+    <div className={"list"}>
+      {products.map((item) => (
+        <Card
+          id={item.id}
+          img={item.img}
+          name={item.name}
+          bin={bin}
+          price={item.price}
+          callbalck={callback}
+        />
+      ))}
+    </div>

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import btn from "./AddButton.css";
+import "./AddButton.css";
 
 const AddButton = ({ id, callback }) => {
   const [button, setButton] = useState(false);
@@ -25,7 +25,7 @@ const AddButton = ({ id, callback }) => {
     <div>
       <div>
         {!button ? (
-          <button type="submit" onClick={buttonPressed} className={btn.btn}>
+          <button type="submit" onClick={buttonPressed} className={"btn"}>
             Add
           </button>
         ) : (
@@ -33,14 +33,14 @@ const AddButton = ({ id, callback }) => {
             <button
               type="submit"
               onClick={removeProduct}
-              className={`${btn.btn} ${btn.btn__minus}`}
+              className={"btn btn__minus"}
             >
               -
             </button>
             <button
               type="submit"
               onClick={addProduct}
-              className={`${btn.btn} ${btn.btn__plus}`}
+              className={"btn btn__plus"}
             >
               +
             </button>
