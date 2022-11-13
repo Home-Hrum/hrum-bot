@@ -2,11 +2,12 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  align-content: center;
   text-align: center;
 
-  width: 170px;
-  height: 240px;
-  padding: 15px;
+  width: 130px;
+  height: 250px;
+  padding: 0;
 }
 
 /*fix indicator ?*/
@@ -32,14 +33,11 @@
 }
 
 .item__img {
-  background: var(--tg-theme-button-color);
-  width: 100%;
+  width: 120px;
   height: 120px;
+  background: white;
   border-radius: 10px;
   margin: 0 auto;
-  background-position: "center";
-  background-size: "cover";
-  background-repeat: "no-repeat";
 }
 
 .item__text {
@@ -47,4 +45,3 @@
   font-size: 15px;
   width: 120px;
 }
-

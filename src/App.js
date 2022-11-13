@@ -1,18 +1,76 @@
 import "./App.css";
-import { useEffect } from "react";
-import { useTelegram } from "./hooks/useTelegram.js";
-import Card from "./components/Card.jsx";
 
-const telegram = window.Telegram.WebApp;
+import { useEffect, useCallback } from "react";
+import { useTelegram } from "./hooks/useTelegram.js";
+import Card from "./components/ProductCard/Card.jsx";
+import CardsList from "./components/CardsList/CardsList.jsx";
+
+const products = [
+  {
+    category_name: "Грузия",
+    items: [
+      {
+        id: 1,
+        img: "",
+        name: "Уха",
+        price: 6,
+      },
+      {
+        id: 1,
+        img: "",
+        name: "Уха",
+        price: 6,
+      },
+    ],
+  },
+  {
+    category_name: "Турция",
+    items: [
+      {
+        id: 1,
+        img: "",
+        name: "Уха",
+        price: 6,
+      },
+      {
+        id: 1,
+        img: "",
+        name: "Уха",
+        price: 6,
+      },
+    ],
+  },
+];
 
 function App() {
   // console.log(telegram.initData);
 
-  const { telegram, userData, onClose } = useTelegram();
+  let counter = 0;
+  const { telegram, userData, onClose, onToggleMainButton } = useTelegram();
 
   useEffect(() => {
     telegram.ready();
+    // telegram.expand();
+  });
+
+  useEffect(() => {
+    onToggleMainButton();
+  }, [counter, onToggleMainButton]);
+
+  // send data
+  /*
+  const onSendButton = useCallback(() => {
+    telegram.sendData(JSON.stringify("{'age': 1}"));
+  }, [bin]);
+
+  useEffect(() => {
+    telegram.onEvent("mainButtonClicked", onSendButton);
+
+    return () => {
+      telegram.offEvent("mainButtonClicked", onSendButton);
+    };
   }, []);
+  */
 
   const bin = {};
 
@@ -34,59 +92,9 @@ function App() {
   return (
     <div className="App">
       <button onClick={onClose}>sdclose app</button>
+      <button onClick={onToggleMainButton}>toogle</button>
       <span>{userData?.user?.username}</span>
-      <div className="container">
-        <div className="inner">
-          <Card
-            id={1}
-            img={"/home/a1k0u/Documents/homehrum/hrum-bot/src/img/a.png"}
-            name={"Уха донская из атлантического лосося"}
-            bin={bin}
-            price={6}
-            callback={changeOrder}
-          />
-          <Card
-            id={2}
-            img={"/home/a1k0u/Documents/homehrum/hrum-bot/src/img/a.png"}
-            name={"Чахохбили из курицы"}
-            bin={bin}
-            price={3}
-            callback={changeOrder}
-          />
-          <Card
-            id={3}
-            img={""}
-            name={"Рулеты из баклажанов с орехами"}
-            bin={bin}
-            price={2}
-            callback={changeOrder}
-          />
-          <Card
-            id={4}
-            img={""}
-            name={"Дюквари"}
-            bin={bin}
-            price={1}
-            callback={changeOrder}
-          />
-          <Card
-            id={5}
-            img={""}
-            name={"Блинчики с мясом"}
-            bin={bin}
-            price={10}
-            callback={changeOrder}
-          />
-          <Card
-            id={6}
-            img={""}
-            name={"UUDU Блинчики с мясом"}
-            bin={bin}
-            price={11}
-            callback={changeOrder}
-          />
-        </div>
-      </div>
+      <CardsList products={products} bin={bin} callback={changeOrder} />
     </div>
   );
 }

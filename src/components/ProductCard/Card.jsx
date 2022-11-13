@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import card from "./Card.css";
+import "./Card.css";
 import AddButton from "../Button/AddButton.jsx";
 
 const Card = ({ id, img, name, price, bin, callback }) => {
@@ -11,9 +11,9 @@ const Card = ({ id, img, name, price, bin, callback }) => {
   };
 
   return (
-    <div className={card.item}>
+    <div className={"item"}>
       {indicator ? (
-        <div className={card.item__indicator}>
+        <div className={"item__indicator"}>
           <p>{indicator}</p>
         </div>
       ) : (
@@ -22,11 +22,17 @@ const Card = ({ id, img, name, price, bin, callback }) => {
 
       <div
         style={{
-          backgroundImage: `url(${require("./placeholder.png")})`,
+          backgroundImage:
+            "url(/home/alkosenko/Documents/homehrum/hrum-bot/src/components/ProductCard/placeholder.png)",
+          backgroundPosition: "center",
+          backgroundSize: "cover",
+          backgroundRepeat: "no-repeat",
         }}
-        className={card.item__img}
-      ></div>
-      <p className={card.item__text}>
+        className={"item__img"}
+      >
+        dsdssdsdd
+      </div>
+      <p className={"item__text"}>
         {name} ∙ <b>{price}€</b>
       </p>
 

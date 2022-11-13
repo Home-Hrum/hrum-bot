@@ -4,20 +4,22 @@ import Card from "../ProductCard/Card";
 
 const CardsList = ({ products, bin, callback }) => {
   return (
-    <div>
+    <div className={"container"}>
       {products.map((category) => (
-        <div className={"list"}>
+        <div className={"block"}>
           <h1>{category.category_name}</h1>
-          {category.items.map((item) => (
-            <Card
-              id={item.id}
-              img={item.img}
-              name={item.name}
-              bin={bin}
-              price={item.price}
-              callback={callback}
-            />
-          ))}
+          <div className={"list"}>
+            {category.items.map((item) => (
+              <Card
+                id={item.id}
+                img={item.img}
+                name={item.name}
+                bin={bin}
+                price={item.price}
+                callback={callback}
+              />
+            ))}
+          </div>
         </div>
       ))}
     </div>
