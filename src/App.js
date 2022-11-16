@@ -1,43 +1,59 @@
 import "./App.css";
-
-import { useEffect, useCallback } from "react";
+import { useEffect } from "react";
 import { useTelegram } from "./hooks/useTelegram.js";
-import Card from "./components/ProductCard/Card.jsx";
 import CardsList from "./components/CardsList/CardsList.jsx";
 
 const products = [
   {
-    category_name: "Грузия",
-    items: [
-      {
-        id: 1,
-        img: "",
-        name: "Уха",
-        price: 6,
-      },
-      {
-        id: 1,
-        img: "",
-        name: "Уха",
-        price: 6,
-      },
+    categoryName: "Грузия",
+    groups: [
+      [
+        {
+          id: 1,
+          img: "",
+          name: " g1 Уха",
+          price: 6,
+        },
+        {
+          id: 2,
+          img: "",
+          name: "g1 Уха",
+          price: 6,
+        },
+      ],
+      [
+        {
+          id: 3,
+          img: "",
+          name: "Название",
+          price: 13,
+        },
+        {
+          id: 4,
+          img: "",
+          name: "text",
+          price: 443,
+        },
+      ],
     ],
   },
   {
-    category_name: "Турция",
-    items: [
-      {
-        id: 1,
-        img: "",
-        name: "Уха",
-        price: 6,
-      },
-      {
-        id: 1,
-        img: "",
-        name: "Уха",
-        price: 6,
-      },
+    categoryName: "Турция",
+    groups: [
+      [
+        {
+          id: 1,
+          img: "",
+          name: "Уха",
+          price: 6,
+        },
+        {
+          id: 1,
+          img: "",
+          name: "Уха",
+          price: 6,
+        },
+      ],
     ],
   },
 ];
@@ -90,10 +106,11 @@ function App() {
   };
 
   return (
-    <div className="App">
+    <div className="container-fluid">
       <button onClick={onClose}>sdclose app</button>
       <button onClick={onToggleMainButton}>toogle</button>
       <span>{userData?.user?.username}</span>
+
       <CardsList products={products} bin={bin} callback={changeOrder} />
     </div>
   );
